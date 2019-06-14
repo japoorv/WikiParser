@@ -1,3 +1,5 @@
+WikiParser
+
 1. The above parser is aimed for extracting the visible text from the xml dumps of wikipedia .
 
 2. The output would be in .txt format with different .txt for different pages with the name being the id and the revision id of the page. 
