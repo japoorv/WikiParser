@@ -13,24 +13,44 @@ Refer to the syntax of the WikiText Markup for more details .
 Following are the details of what the library does as of now on the xml dumps .
 
 Processed :
-	Templates
+
+Templates
+
 Removed Content Text :
-	Infobox
-	Files (Images,audio,etc)
-	Comments
-	References
-	Sections :
-		See Also Content
-		Notes
-		External Links
-		References
-		Bibliography
-	Templates :
-		Quote
-		About
-		Switch-Case
-		Expression
-		Main-Article 
-		Convertions
-		Dates
+
+Infobox
+
+Files (Images,audio,etc)
+
+Comments
+
+References
+
+Sections :
+
+See Also Content
+		
+Notes
+
+External Links
+
+References
+
+Bibliography
+
+Templates :
+
+Quote
+
+About
+
+Switch-Case
+
+Expression
+
+Main-Article 
+
+Convertions
+
+Dates
 
