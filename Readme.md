@@ -14,43 +14,43 @@ Following are the details of what the library does as of now on the xml dumps .
 
 Processed :
 
-Templates
+1.) Templates
 
 Removed Content Text :
 
-Infobox
+1.) Infobox
 
-Files (Images,audio,etc)
+2.) Files (Images,audio,etc)
 
-Comments
+3.) Comments
 
-References
+4.) References
 
-Sections :
+5.) Sections :
 
-See Also Content
+5.a.) See Also Content
 		
-Notes
+5.b) Notes
 
-External Links
+5.c) External Links
 
-References
+5.d) References
 
-Bibliography
+5.e) Bibliography
 
-Templates :
+6) Templates :
 
-Quote
+6.a) Quote
 
-About
+6.b) About
 
-Switch-Case
+6.c) Switch-Case
 
-Expression
+6.d) Expression
 
-Main-Article 
+6.e) Main-Article 
 
-Convertions
+7) Convertions
 
-Dates
+8) Dates
 
