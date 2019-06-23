@@ -94,6 +94,6 @@ def main():
 	parser.setContentHandler(handler)
 	parser.parse('b.xml');
 	toc=time.time();
-	print(toc-tic + ' seconds elapsed');
+	print(str(toc-tic) + ' seconds elapsed');
 if __name__=='__main__' :
 	main();
