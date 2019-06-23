@@ -19,7 +19,7 @@ def remove_infobox(a):
 	i=0;
 	b='';
 	while(i<len(a)): 
-		if (i+6<len(a) and (a[i:i+6]=='{{use ' or a[i:i+6]=='{{Shor' or a[i:i+6]=='{{conv' or a[i:i+6]=='{{loca' or a[i:i+6]=='{{Use ' or a[i:i+6]=='{{Main' or a[i:i+6]=='{{#swi' or a[i:i+6]=='{{#exp' or a[i:i+6]=='{{col-' or a[i:i+6]=='{{full' or a[i:i+6]=='{{Info' or a[i:i+6]=='{{subs' or a[i:i+6]=='{{rp-p' or a[i:i+6]=='{{Quot' or a[i:i+6]=='{{Abou' or  a[i:i+6]=='{{Circ' or a[i:i+5]=='{{IPA' or a[i:i+5]=='{{not' or (a[i:i+5]=='{{ref') or a[i:i+5]=='{{Sfn' or (a[i:i+5]=='{{sfn') or (a[i:i+5]=='{{efn') or (a[i:i+5]=='{{Not'))):
+		if (i+6<len(a) and (a[i:i+6]=='{{use ' or a[i:i+6]=='{{shor' or a[i:i+6]=='{{conv' or a[i:i+6]=='{{loca' or a[i:i+6]=='{{use ' or a[i:i+6]=='{{main' or a[i:i+6]=='{{#swi' or a[i:i+6]=='{{#exp' or a[i:i+6]=='{{col-' or a[i:i+6]=='{{full' or a[i:i+6]=='{{info' or a[i:i+6]=='{{subs' or a[i:i+6]=='{{rp-p' or a[i:i+6]=='{{quot' or a[i:i+6]=='{{abou' or  a[i:i+6]=='{{circ' or a[i:i+5]=='{{ipa' or a[i:i+5]=='{{not' or (a[i:i+5]=='{{ref') or  (a[i:i+5]=='{{sfn') or (a[i:i+5]=='{{efn') or (a[i:i+5]=='{{not'))):
 			brack=0;
 			while(i<len(a)):
 				if (a[i]=='{'):
@@ -53,13 +53,14 @@ def prcss_templates(a):
 		else:
 			b+=a[i];
 		i=i+1;
+		
 	return b;	
 
 def remove_files(a):
 	i=0;
 	b='';
 	while(i<len(a)): 
-		if (i+5<len(a) and (a[i:i+6]=='[[File' or a[i:i+6]=='[[Imag')):
+		if (i+5<len(a) and (a[i:i+6]=='[[file' or a[i:i+6]=='[[imag')):
 			brack=0;
 			while(i<len(a)):
 				if (a[i]=='['):
@@ -145,7 +146,7 @@ def prcss_olinks(a):
 			i+=1;
 	return b;	
 
-def remove_rfrns(a):
+def remove_rfrns1(a):
 	i=0;
 	b='';
 	flag=0;
@@ -218,17 +219,18 @@ def rmv_heading(a,headings):
 	i=0;
 	b='';
 	while(i<len(a)):
-		if (i+2<len(a) and a[i:i+3]=='== '):
+		if (i+1<len(a) and a[i:i+2]=='=='):
 			heading='';
-			for j in range(i+3,len(a)):
-				if (j+2<len(a) and a[j:j+3]==' =='):
+			for j in range(i+2,len(a)):
+				if (j+1<len(a) and a[j:j+2]=='=='):
 					break;
 				else :
 					heading+=a[j];
-			if (heading.lower() in headings):
-				i=j+3;
+			heading=heading.replace(' ','');
+			if (heading in headings):
+				i=j+2;
 				while(i<len(a)):
-					if (i+2<len(a) and a[i:i+3]=='== '):
+					if (i+1<len(a) and a[i:i+2]=='=='):
 						break;
 					else :
 						i+=1;
@@ -242,7 +244,8 @@ def rmv_heading(a,headings):
 	return b;
 
 def parse_text(a,pid):
-	a=rmv_heading(a,['see also','notes','references','bibliography','external links']);
+	a=a.lower();
+	a=rmv_heading(a,['seealso','notes','references','bibliography','externallinks']);
 	a=remove_comment(a); 
 	a=remove_infobox(a);
 	a=remove_files(a);
@@ -250,6 +253,7 @@ def parse_text(a,pid):
 	a=prcss_ilinks(a); # internal links
 	a=prcss_olinks(a); # external links
 	a=remove_rfrns(a); # removing references
+	a=remove_rfrns1(a);
 	a=remove_divs(a);
 	a=prcss_templates(a);
 	a=a.replace('</div>',' ')
