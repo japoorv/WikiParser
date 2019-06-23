@@ -48,8 +48,9 @@ class MyHandler(xml.sax.handler.ContentHandler):
 		global contributor;
 		global ns;
 		global temp_pid;
-		if (name=='text' and ns==0):
-			wparser.parse_text(page_text,pid); #Parses the given text
+		if (name=='text'):
+			if(ns==0):
+				wparser.parse_text(page_text,pid); #Parses the given text
 			page_text='';
 			contributor=0;
 			revision=0;
@@ -80,7 +81,7 @@ class MyHandler(xml.sax.handler.ContentHandler):
 			bb=conv(content);
 			if (bb!=''):
 				ns=bb;
-				
+
 			
 	
 			
@@ -93,6 +94,6 @@ def main():
 	parser.setContentHandler(handler)
 	parser.parse('b.xml');
 	toc=time.time();
-	print(toc-tic);
+	print(toc-tic + ' seconds elapsed');
 if __name__=='__main__' :
 	main();
