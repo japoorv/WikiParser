@@ -1,6 +1,6 @@
 WikiParser
 
-1. The above parser is aimed for extracting the visible text from the xml dumps of wikipedia .
+1. The above parser is aimed for extracting the visible text from the xml dumps of wikipedia . The script extracts only those pages of the wikidump which are Articles that is have namespace 0 . Refer to the wikipedia namespace for more info https://en.wikipedia.org/wiki/Wikipedia:Namespace .
 
 2. The output would be in .txt format with different .txt for different pages with the name being the id and the revision id of the page. 
 
